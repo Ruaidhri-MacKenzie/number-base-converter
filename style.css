@@ -1,0 +1,241 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"header"
+		"main"
+		"footer";
+	min-height: 100vh;
+}
+
+.header {
+	grid-area: header;
+	padding: 2em;
+	background-color: #333;
+}
+
+.header__title {
+	color: #fff;
+	cursor: default;
+	text-align: center;
+}
+
+.header__subtitle {
+	color: #fff;
+	cursor: default;
+	text-align: center;
+}
+
+.main {
+	grid-area: main;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	background-color: #eee;
+}
+
+.footer {
+	grid-area: footer;
+	background-color: #222;
+}
+
+.footer__copyright {
+	padding: 1em;
+	color: #fff;
+	cursor: default;
+	text-align: center;
+}
+
+
+.converter {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: 1fr auto  auto 1fr;
+	grid-template-areas:
+		"output 	output			output		output"
+		".				input				.					."
+		".				input-btns 	options		.";
+	padding: 2em;
+	background-color: #aaa;
+	background-image: linear-gradient(135deg,#ccc, #ddd);
+	border-radius: 10px;
+	box-shadow: -1px -1px 3px #333;
+	border-left: 1px solid #555;
+	border-top: 1px solid #555;
+	border-right: 3px solid #555;
+	border-bottom: 3px solid #555;
+}
+
+.converter__output {
+	grid-area: output;
+	padding: 0.25em;
+	background-color: #898b64;
+	background-image: linear-gradient(135deg, #898b64, #a0a57d);
+	border-left: 3px solid #333;
+	border-top: 3px solid #333;
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #333;
+	cursor: default;
+	font-family: monospace;
+	font-size: 2rem;
+	font-weight: 900;
+	text-align: center;
+}
+
+.converter__input {
+	grid-area: input;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.25em;
+	background-color: #898b64;
+	background-image: linear-gradient(135deg, #898b64, #a0a57d);
+	border-left: 3px solid #333;
+	border-top: 3px solid #333;
+	border-right: 1px solid #333;
+	border-bottom: 1px solid #333;
+	cursor: default;
+	font-family: monospace;
+	font-size: 1.75rem;
+	font-weight: 900;
+	text-align: center;
+}
+
+@keyframes flasher {
+	0%, 100%	{ opacity: 1; }
+	50%				{ opacity: 0; }
+}
+
+.converter__input-text {
+	position: relative;
+	margin: 0 0.5em;
+}
+.converter__input-text::after {
+	content: "_";
+	position: absolute;
+	top: 0;
+	right: -1rem;
+	animation-name: flasher;
+	animation-duration: 1500ms;
+	animation-delay: 0;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count:  infinite;
+}
+
+
+.converter__digits {
+	grid-area: input-btns;
+	width: 336px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	justify-self: right;
+}
+
+.converter__digit {
+	margin: 2px;
+	min-width: 80px;
+	min-height: 80px;
+	background-color: #e1e1e1;
+	border-left: 1px solid #333;
+	border-top: 1px solid #333;
+	border-right: 3px solid #333;
+	border-bottom: 3px solid #333;
+	box-shadow: -1px -1px 3px #333;
+	cursor: pointer;
+	font-size: 2rem;
+}
+.converter__digit:hover {
+	background-color: #e5f1fb;
+}
+.converter__digit:active {
+	border-right: 3px solid #555;
+	border-bottom: 3px solid #555
+}
+.converter__digit--hidden {
+	display: none;
+}
+
+
+.converter__options {
+	grid-area: options;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ccc;
+	background-image: linear-gradient(135deg, #aaa, #bbb);
+	border-left: 3px solid #555;
+	border-top: 3px solid #555;
+	border-right: 1px solid #555;
+	border-bottom: 1px solid #555;
+}
+
+.converter__types {
+	min-width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.converter__types-text {
+	padding: 0.5em;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 900;
+	text-align: center;
+}
+
+.converter__types-select {
+	width: 90%;
+	min-height: 2em;
+	font-size: larger;
+	text-align: center;
+}
+.converter__types-select:hover,
+.converter__types-select:focus {
+	border: 2px solid #00f;
+}
+
+.converter__buttons {
+	padding: 1em;
+	display: grid;
+	grid-gap: 1em;
+	grid-template-areas:
+		"clear	delete"
+		"equals	equals";
+}
+.converter__button {
+	width: 100%;
+	height: 100%;
+	padding: 0.25em 0.5em;
+	border-left: 1px solid #333;
+	border-top: 1px solid #333;
+	box-shadow: -1px -1px 4px #333;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-weight: 900;
+	color: #fff;
+}
+.converter__buttons-clear {
+	grid-area: clear;
+	background-color: #f00;
+}
+.converter__buttons-delete {
+	grid-area: delete;
+	background-color: #f00;
+	font-size: 2rem;
+}
+
+.converter__buttons-equals {
+	grid-area: equals;
+	background-color: #00f;
+}

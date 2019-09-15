@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="style.css">
+	<title>Number Base Converter</title>
+</head>
+
+<body>
+	<header class="header">
+		<h1 class="header__title">Number Base Converter</h1>
+		<h3 class="header__subtitle">Convert between decimal, binary and hexadecimal</h3>
+	</header>
+	
+	<main class="main">
+		<form class="converter" onsubmit="return false">
+			<p class="converter__output">0</p>
+			<div class="converter__input">
+				<p class="converter__input-text">0</p>
+			</div>
+
+			<section class="converter__digits">
+				<button class="converter__digit" name="0">0</button>
+				<button class="converter__digit" name="1">1</button>
+				<button class="converter__digit" name="2">2</button>
+				<button class="converter__digit" name="3">3</button>
+				<button class="converter__digit" name="4">4</button>
+				<button class="converter__digit" name="5">5</button>
+				<button class="converter__digit" name="6">6</button>
+				<button class="converter__digit" name="7">7</button>
+				<button class="converter__digit" name="8">8</button>
+				<button class="converter__digit" name="9">9</button>
+				<button class="converter__digit" name="A">A</button>
+				<button class="converter__digit" name="B">B</button>
+				<button class="converter__digit" name="C">C</button>
+				<button class="converter__digit" name="D">D</button>
+				<button class="converter__digit" name="E">E</button>
+				<button class="converter__digit" name="F">F</button>
+			</section>
+
+			<section class="converter__options">
+				<section class="converter__types">
+					<p class="converter__types-text">Convert</p>
+					<select class="converter__types-select converter__types-input" onchange="updateInput(this.value)" name="input-type" id="input-type">
+							<option value="decimal" selected>Decimal</option>
+							<option value="binary">Binary</option>
+							<option value="hexadecimal">Hexadecimal</option>
+						</select>
+						<p class="converter__types-text">To</p>
+						<select class="converter__types-select converter__types-output" onchange="updateOutput()" name="output-type" id="output-type">
+								<option value="decimal">Decimal</option>
+								<option value="binary" selected>Binary</option>
+								<option value="hexadecimal">Hexadecimal</option>
+						</select>
+				</section>
+
+				<section class="converter__buttons">
+					<button class="converter__button converter__buttons-clear" type="submit">C</button>
+					<button class="converter__button converter__buttons-delete" type="submit"><span class="fas fa-backspace"></span></button>
+					<button class="converter__button converter__buttons-equals" type="submit">=</button>
+				</section>
+			</section>
+		</form>
+	</main>
+
+	<footer class="footer">
+		<p class="footer__copyright">Ruaidhri MacKenzie - &copy; 2019 - North East Scotland College</p>
+	</footer>
+
+	<script src="converters.js"></script>
+	<script src="converters.test.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
